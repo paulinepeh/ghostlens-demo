@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { applyPolicyToDetections } from '../utils/canvas';
 import type { Detection, Policy } from '../types';
+import { loadFaceModels } from '../detectors/face';
+
 
 export default function VideoPlayer({
   file, detections, policy, onTime
@@ -14,6 +16,10 @@ export default function VideoPlayer({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [rec, setRec] = useState<MediaRecorder|null>(null);
   const [chunks, setChunks] = useState<BlobPart[]>([]);
+useEffect(() => {
+    loadFaceModels('/models').catch(console.error);
+  }, []);
+
 
   useEffect(() => {
     let raf = 0;
