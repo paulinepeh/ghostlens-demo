@@ -20,6 +20,10 @@ useEffect(() => {
     loadFaceModels('/models').catch(console.error);
   }, []);
 
+useEffect(() => {
+  console.log('VideoPlayer mounted');
+  return () => console.log('VideoPlayer unmounted');
+}, []);
 
   useEffect(() => {
     let raf = 0;
