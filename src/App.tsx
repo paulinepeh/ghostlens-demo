@@ -96,7 +96,7 @@ export default function App() {
       <h3 style={{ marginTop:16 }}>Detections Timeline</h3>
       <Timeline dets={dets} now={now} />
 
-      {/* ✅ Privacy Score Card */}
+      {/* Privacy Score Card */}
       <div
         style={{
           marginTop: 12,
